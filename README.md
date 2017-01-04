@@ -14,6 +14,7 @@ Graph.h requires the following:
 The code performs the following:
 
 1) Generates and plots a network of uniformly distributed nodes
+
   i) The network moves left to right, with the left most vertex in the graph selected as the source node.
   
 2) Cost between two vertices u and v is selected as (dist[u, v])^2, i.e., square of the distance between the two vertices. The cost formula can be changed in Dijkstra.cpp.
