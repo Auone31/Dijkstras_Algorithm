@@ -109,7 +109,7 @@ void Dijkstra::Dijkstra_algorithm(void)
   	*****************************************************************************/
 	std::cout << "Vertex number and cost from the source BEFORE Dijkstra's Algorithm" << std::endl;
 	std::cout << "Cost" << "-->" << "Vertex" << std::endl;
-    for (int i = 0; i < size_graph; ++i)
+	for (int i = 0; i < size_graph; ++i)
 	{
 		std::cout << costs[i] << " --> " << sorted_vertices[i] << std::endl;
 	}
