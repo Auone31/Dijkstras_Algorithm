@@ -15,11 +15,11 @@ The code performs the following:
 
 1) Generates and plots a network of uniformly distributed nodes
 
-  i) The network moves left to right, with the left most vertex in the graph selected as the source node.
+2) The network moves left to right, with the left most vertex in the graph selected as the source node.
   
-2) Cost between two vertices u and v is selected as (dist[u, v])^2, i.e., square of the distance between the two vertices. The cost formula can be changed in Dijkstra.cpp.
+3) Cost between two vertices u and v is selected as (dist[u, v])^2, i.e., square of the distance between the two vertices. The cost formula can be changed in Dijkstra.cpp.
 
-3) At the end of execution, the code prints out the cost from source vertex to each of the remaining vertices as calculated before and after running Dijkstra's algorithm.
+4) At the end of execution, the code prints out the cost from source vertex to each of the remaining vertices as calculated before and after running Dijkstra's algorithm.
 
 Any feedback would be highly appreciated!!!
 
