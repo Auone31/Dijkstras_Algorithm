@@ -54,7 +54,7 @@ public:
 
 
 	/*****************************************************************************
- 	* plot the shortest path from the source_vertex to vertex specified by 
+ 	* Plot the shortest path from the source_vertex to vertex specified by 
  	* dest_number. 
 	*****************************************************************************/
 	void get_shortest_path(int dest_number);
