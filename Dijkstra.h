@@ -50,7 +50,7 @@ public:
 	/*****************************************************************************
  	* Finds the shortest cost path from source vertex to every destination vertex
 	*****************************************************************************/
-    void Dijkstra_algorithm(void);
+	void Dijkstra_algorithm(void);
 
 
     /*****************************************************************************
