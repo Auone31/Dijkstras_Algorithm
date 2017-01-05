@@ -11,12 +11,11 @@
 
 int main(int argc, const char * argv[])
 {
-    Dijkstra myGR;
+    //Dijkstra myGR(int sg, float md), where sg = size_graph, md = maximum_distance 
+    Dijkstra myGR; // <--------- Overloading constructor being used currently
     myGR.draw_graph();
     myGR.Dijkstra_algorithm();
-    int stop;
-    std::cout << "Please enter any number to exit: ";
-    std::cin >> stop;
-    std::cout << stop*stop << std::endl;
-    return 0;
+    std::cout << "Please enter any key to exit: ";
+    getchar();
+	return 0;
 }

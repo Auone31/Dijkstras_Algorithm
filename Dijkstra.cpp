@@ -74,10 +74,10 @@ void Dijkstra::Dijkstra_algorithm(void)
   	* Sort all the vertices based on their distances from the source vertex.
   	* Calculate and store the cost of each vertex from the source vertex.
   	* IMPORTANT:
-  	*	If distance between source u and vertex v is less than 50:
+  	*	If distance between source u and vertex v is less than "max_distance":
   	*					 cost[u,v] = (dist[u,v])^2
   	*
-  	*	If distance between source u and vertex v is greater than 50:           
+  	*	If distance between source u and vertex v is greater than "max_distance":           
   	*                    cost[u,v] = Infinity (1000000)
   	*****************************************************************************/	
 	for (int i = 0; i < size_graph; ++i)
