@@ -190,6 +190,20 @@ bool Doubly_LinkedList::get_node(int position, int & vertex_number)
 
 
 /****************************************************************************
+* Function: get_length()
+*****************************************************************************
+*
+* Function returns length of the list
+* 
+*
+****************************************************************************/
+int Doubly_LinkedList::get_length()
+{
+	return (LinkedList);
+}
+
+
+/****************************************************************************
 * Function: printout()
 *****************************************************************************
 *
@@ -206,7 +220,7 @@ void Doubly_LinkedList::printout()
 	std::cout <<  "Previous------Current------Next" << std::endl;
 	for (int i = 1; i <= LinkedList; ++i)
 	{
-		std::cout << previous_node -> number << "------" << current_node -> number << "(" << current_node -> cost << ")" << "------" << next_node -> number << std::endl;
+		std::cout << previous_node -> number << "------" << current_node -> number << "------" << next_node -> number << std::endl;
 		previous_node = current_node;
 		current_node = current_node -> next_item;
 		next_node = next_node -> next_item;

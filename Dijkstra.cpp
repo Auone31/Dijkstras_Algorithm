@@ -55,14 +55,6 @@ void Dijkstra::Dijkstra_algorithm(void)
 	{
 		node * current_node = new node;
 		current_node -> number = i;
-		if (i == source_node)
-		{
-			current_node -> cost = 0;
-		}
-		else
-		{
-			current_node -> cost = 100000000;
-		}
 		routing_table[i].push_back(current_node);
 		distances[i] = sqrt(pow((vertex_x[i] - vertex_x[source_node]),2) + pow((vertex_y[i] - vertex_y[source_node]),2));
 	}
@@ -154,7 +146,17 @@ void Dijkstra::Dijkstra_algorithm(void)
 				}
 				if (costs[neighbor_location] > costs[visited.size()] + cost)
 				{
-					costs[neighbor_location] = costs[visited.size()] + cost; 
+					costs[neighbor_location] = costs[visited.size()] + cost;
+
+					if (routing_table[neighbor_table[current_vertex][i]].get_length() > 1)
+					{
+						for (int l = 1; l < routing_table[neighbor_table[current_vertex][i]].get_length(); ++l)
+						{
+							routing_table[neighbor_table[current_vertex][i]].remove(l);
+						}
+					}
+
+					//for (unsigned int l = 0; l < ) 
 				}
 			}
 		}

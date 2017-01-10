@@ -9,7 +9,6 @@ using namespace std;
 struct node
 {
 	int number;
-	int cost;
 
 	node * next_item;
 	node * previous_item;
@@ -71,6 +70,12 @@ public:
  * Gets the contents of the targetted node
 *****************************************************************************/
 	bool get_node(int position, int & numberr);
+
+
+/*****************************************************************************
+  * Function returns length of the list
+ *****************************************************************************/		
+	int get_length();
 
 
 /*****************************************************************************
