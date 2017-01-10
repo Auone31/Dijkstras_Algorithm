@@ -135,7 +135,7 @@ void Dijkstra::Dijkstra_algorithm(void)
 
 
 				//Find the location of the current neighbor within "sorted_vertices". The current 
-				//cost to that neighbor can be found "costs" vector at the same location. 
+				//cost to that neighbor can be found in the "costs" vector at the same location. 
 				for (int k = 0; k < size_graph; ++k)
 				{
 					if (sorted_vertices[k] == neighbor_table[current_vertex][i])
@@ -148,6 +148,8 @@ void Dijkstra::Dijkstra_algorithm(void)
 				{
 					costs[neighbor_location] = costs[visited.size()] + cost;
 
+
+					//Remove the previous best path to the current neighbor
 					if (routing_table[neighbor_table[current_vertex][i]].get_length() > 1)
 					{
 						for (int l = 1; l < routing_table[neighbor_table[current_vertex][i]].get_length(); ++l)
