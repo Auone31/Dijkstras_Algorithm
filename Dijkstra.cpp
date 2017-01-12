@@ -36,19 +36,13 @@ Dijkstra::Dijkstra(int sg, float md) : Graph(sg, md)
 *****************************************************************************
 *
 * Finds the shortest cost path from source vertex to every destination vertex
-*
-* IMPORTANT:
-*	1) Currently, algorithm only calculates the least costs from source to 
-*	every destination.
-*	2) Functionality to add to routing table remains to be added 
+* Prints out the cost to each vertex and saves the least cost path to each 
+* destination
 ****************************************************************************/
 void Dijkstra::Dijkstra_algorithm(void)
 {
-	// ------------------------!$!$!$!$!$!$!$!$!$!$!$!$!$------------------------
-	//
-	// The code within these markers is for adding the routing table. For now the
-	// only part being used from this section of the code is the "distances" array
-	// which is used later within this fuction.  
+	// Initializaing the routing table. and saving distances between the source
+	// vertex and each of the destination vertices in an array  
 	routing_table = new Doubly_LinkedList [size_graph];
 	distances = new float [size_graph];
 	for (int i = 0; i < size_graph; ++i)
@@ -58,8 +52,7 @@ void Dijkstra::Dijkstra_algorithm(void)
 		routing_table[i].push_back(current_node);
 		distances[i] = sqrt(pow((vertex_x[i] - vertex_x[source_node]),2) + pow((vertex_y[i] - vertex_y[source_node]),2));
 	}
-	//
-	// ------------------------!$!$!$!$!$!$!$!$!$!$!$!$!$------------------------
+
 
 
 	/*****************************************************************************
@@ -148,17 +141,26 @@ void Dijkstra::Dijkstra_algorithm(void)
 				{
 					costs[neighbor_location] = costs[visited.size()] + cost;
 
-
-					//Remove the previous best path to the current neighbor
+					//Remove the previous best path to the current neighbor. The "if" condition checks if
+					//there are nodes already added to the routing table for the current neighbor
 					if (routing_table[neighbor_table[current_vertex][i]].get_length() > 1)
 					{
-						for (int l = 1; l < routing_table[neighbor_table[current_vertex][i]].get_length(); ++l)
+						int table_length = routing_table[neighbor_table[current_vertex][i]].get_length();
+						for (int l = 1; l < table_length; ++l)
 						{
-							routing_table[neighbor_table[current_vertex][i]].remove(l);
+							routing_table[neighbor_table[current_vertex][i]].remove(1);
 						}
 					}
 
-					//for (unsigned int l = 0; l < ) 
+					// Add the new best path to the routing table
+					for (int m = 1; m <= routing_table[current_vertex].get_length(); ++m)
+					{
+						int vertex_number;
+						routing_table[current_vertex].get_node(m, vertex_number);
+						node * vertex = new node;
+						vertex -> number = vertex_number;
+						routing_table[neighbor_table[current_vertex][i]].insert_node(vertex, m);
+					} 
 				}
 			}
 		}
@@ -183,12 +185,17 @@ void Dijkstra::Dijkstra_algorithm(void)
 * Function: get_shortest_path(int dest_number)
 *****************************************************************************
 *
-* Functionality remains to be added, function will plot the shortest path
-* from the source_vertex to vertex specified by dest_number. 
+* Prints out the shortest path from source to destination "dest_number"
+*
+* ADDITIONAL FEATURES THAT WILL BE ADDED:
+* Function will eventually plot the shortest path from the source_vertex to 
+* the vertex specified by dest_number. 
 *
 ****************************************************************************/
 void Dijkstra::get_shortest_path(int dest_number)
 {
+	std::cout << source_node;
+	routing_table[dest_number].printout();
 }
 
 

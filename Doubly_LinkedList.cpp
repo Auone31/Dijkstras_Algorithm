@@ -156,10 +156,10 @@ bool Doubly_LinkedList::remove(int position)
 
 
 /****************************************************************************
-* Function: get_node(int position, node * Target_Node)
+* Function: get_node(int position, node * vertex_number)
 *****************************************************************************
 *
-* Gets the contents of the targetted node
+* Gets the contents of the targetted node "vertex_number"
 * 
 *
 ****************************************************************************/ 
@@ -213,18 +213,17 @@ int Doubly_LinkedList::get_length()
 ****************************************************************************/ 
 void Doubly_LinkedList::printout()
 {
-	std::cout << "<------Updated Results Start here------>" << std::endl;
 	previous_node = root;
 	current_node = root -> next_item;
 	next_node = current_node -> next_item;
-	std::cout <<  "Previous------Current------Next" << std::endl;
 	for (int i = 1; i <= LinkedList; ++i)
 	{
-		std::cout << previous_node -> number << "------" << current_node -> number << "------" << next_node -> number << std::endl;
+		std::cout << " ---> " << current_node -> number;
 		previous_node = current_node;
 		current_node = current_node -> next_item;
 		next_node = next_node -> next_item;
 	}
+	std::cout << endl;
 }
 
 

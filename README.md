@@ -1,7 +1,10 @@
 # Dijkstras_Algorithm
 C++ Implementation of Dijkstra's Algorithm
 
-IMPORTANT: Currently, the algorithm only calculates the shortest_path costs to all vertices within the Graph. The functionalities of routing table and plotting of shortest paths to specified nodes will be added soon.
+#UPDATE: 
+The program now calculates the shortest_path costs to all vertices within the Graph, prints out the cost to each vertex and also prints out the least cost route to the destination specified by the user. 
+
+IMPORTANT: Plotting of shortest paths to specified nodes will be added soon.
 
 # Dependencies
 Graph.h requires the following:
@@ -19,7 +22,9 @@ The code performs the following:
   
 3) Cost between two vertices u and v is selected as (dist[u, v])^2, i.e., square of the distance between the two vertices. The cost formula can be changed in Dijkstra.cpp.
 
-4) At the end of execution, the code prints out the cost from source vertex to each of the remaining vertices as calculated before and after running Dijkstra's algorithm.
+4) The code prints out the cost from source vertex to each of the remaining vertices as calculated before and after running Dijkstra's algorithm.
+
+5) The code also prints out the least cost path to the user-specified vertex. Users will be prompted to specify their desired destination vertex by typing the vertex number in the CLI. Users can select one of the vertices shown in the plot generated (See item 1 above in Description).
 
 Any feedback would be highly appreciated!!!
 
