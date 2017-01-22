@@ -42,6 +42,7 @@ Graph::Graph(int sg, float md)
 *
 * Generates and draws the graph showing all vertices and edges. Invokes Python 
 * and utilizes matplotlib.pyplot for plotting the graph. 
+*
 * IMPORTANT: 
 *
 * 1) An edge exists between two vertices if the Euclidean distance

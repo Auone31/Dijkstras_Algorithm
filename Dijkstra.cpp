@@ -16,6 +16,7 @@
 ****************************************************************************/
 Dijkstra::Dijkstra()
 {
+	first_check_done = false;
 }
 
 
@@ -28,6 +29,7 @@ Dijkstra::Dijkstra()
 ****************************************************************************/
 Dijkstra::Dijkstra(int sg, float md) : Graph(sg, md)
 {
+	first_check_done = false;
 }
 
 
@@ -185,17 +187,84 @@ void Dijkstra::Dijkstra_algorithm(void)
 * Function: get_shortest_path(int dest_number)
 *****************************************************************************
 *
-* Prints out the shortest path from source to destination "dest_number"
-*
-* ADDITIONAL FEATURES THAT WILL BE ADDED:
-* Function will eventually plot the shortest path from the source_vertex to 
-* the vertex specified by dest_number. 
+* Prints out the shortest path from source to destination "dest_number" and
+* plots the shortest path from the source_vertex to the vertex specified by 
+* "dest_number". 
 *
 ****************************************************************************/
 void Dijkstra::get_shortest_path(int dest_number)
 {
 	std::cout << source_node;
 	routing_table[dest_number].printout();
+	std::string command;
+
+	PyRun_SimpleString("fig = plt.figure(2)");
+
+
+	// Close the figure showing shortest path based on the previous destination
+	// number entered by the user
+	if (first_check_done)
+	{
+		PyRun_SimpleString("plt.close(fig)");
+	}
+	first_check_done = true;
+	command.append("plt.figure(2)");
+	PyRun_SimpleString(command.c_str());
+	command = {};
+
+
+	/*****************************************************************************
+	* Add vertices to the graph. Source node will be shown in red 
+	*****************************************************************************/
+    for (int i = 0; i < size_graph; ++i)
+    {
+        std::cout << "(" << vertex_x[i] << ", " << vertex_y[i] << ")" << std::endl;
+        command.append("plt.scatter(");
+        command.append(std::to_string(vertex_x[i]));
+        command.append(", ");
+        command.append(std::to_string(vertex_y[i]));
+        command.append(", s = 100");
+        if (i == source_node)
+        {
+            command.append(", facecolor = \"red\", edgecolor = \"red\"");
+        }
+        command.append(")");
+        PyRun_SimpleString(command.c_str());
+        command = {};
+        command.append("plt.annotate(");
+        command.append(std::to_string(i));
+        command.append(", (");
+        command.append(std::to_string(vertex_x[i]));
+        command.append(", ");
+        command.append(std::to_string(vertex_y[i]));
+        command.append("))");
+        PyRun_SimpleString(command.c_str());
+        command = {};
+    }
+
+
+/*****************************************************************************
+* Add path to the destination node
+*****************************************************************************/
+    int current_hop = source_node;
+    int next_hop;
+    for (int j = 1; j <= routing_table[dest_number].get_length(); ++j)
+    {
+    	routing_table[dest_number].get_node(j, next_hop);
+    	command.append("plt.plot([");
+        command.append(std::to_string(vertex_x[current_hop]));
+        command.append(", ");
+        command.append(std::to_string(vertex_x[next_hop]));
+        command.append("], [");
+        command.append(std::to_string(vertex_y[current_hop]));
+        command.append(", ");
+        command.append(std::to_string(vertex_y[next_hop]));
+        command.append("], color = \"red\")");
+        PyRun_SimpleString(command.c_str());
+        command = {};
+        current_hop = next_hop;
+    }
+    PyRun_SimpleString("plt.show(block = False)");
 }
 
 

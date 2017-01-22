@@ -24,6 +24,7 @@ class Dijkstra : public Graph
 	float cost;//Used in Dijkstra's algorithm for calculating the costs between two vertices
 	int current_vertex;//Used in Dijsktra's algorithm to store the vertex currently being used to calculate costs to other neighbors
 	int neighbor_location;//Used in Dijsktra's algorithm to obtain the location of given vertex within sorted_vertices
+	bool first_check_done;//Used to close the shortest path figure if one is already open
 
 
 public:
