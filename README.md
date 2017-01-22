@@ -26,7 +26,7 @@ The code performs the following:
 
 5) The code also prints out the least cost path to the user-specified vertex. Users will be prompted to specify their desired destination vertex by typing the vertex number in the CLI. Users can select one of the vertices shown in the plot generated (See item 1 above in Description).
 
-6) Finally, the code also plots the shortest path to the destination specified by the user (Screen_shot as an example.).
+6) Finally, the code also plots the shortest path to the destination specified by the user (Screenshot.png as an example.).
 
 Any feedback would be highly appreciated!!!
 
